@@ -17,6 +17,10 @@ Airbus offers a service to monitor maritime traffic using aerial and satellite i
 This project used data available at [this Kaggle page](https://www.kaggle.com/c/airbus-ship-detection/data).
 
 ## Conclusion and Recommendations
+### Evaluation
+My detection model performed better than baseline, with a 62% accuracy rate among the validation images, although it plateaued around this point. There is some evidence of overfitting, with 76% accuracy rate with the training images. The U-Net was able to correctly generate the bounding boxes with a 36% accuracy rate
+
+### Recommendations
 While I was able to achieve a result that is higher than the baseline in terms of predicting whether a given image has a ship present, there is still room for improving the prediction accuracy. In order to improve performance, I would suggest the following steps:
 - Using a larger training set on a more powerful computer. Due to the size of the iamges (768 * 768) and the fact that several images contained ships so small that resizing the image would obfuscate their presence, the amount of memory required to train on these images is very large.
 - Manually segment a subset of the images based on the size of the ship and use this to train a network to detect the size of the ships in an image. Then, train a series of networks to achieve optimal performance for small ships, medium ships, and large ships. This would address the issue where the network was able to correctly identify large ships, but struggled when identifying smaller ships.
